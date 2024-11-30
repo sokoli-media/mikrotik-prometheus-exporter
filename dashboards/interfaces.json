@@ -794,12 +794,10 @@
       {
         "current": {
           "text": [
-            "ether1",
-            "ether4"
+            "ether1"
           ],
           "value": [
-            "ether1",
-            "ether4"
+            "ether1"
           ]
         },
         "datasource": {
