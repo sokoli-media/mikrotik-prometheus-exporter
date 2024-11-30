@@ -17,4 +17,4 @@ RUN apt-get update && apt-get install -y intel-gpu-tools && apt-get clean
 COPY --from=build /prometheus-exporter /prometheus-exporter
 COPY /dashboards /dashboards
 
-CMD ["/prometheus-exporter"]
+ENTRYPOINT ["/prometheus-exporter"]
