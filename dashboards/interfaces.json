@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 9,
+  "id": 10,
   "links": [],
   "panels": [
     {
@@ -102,8 +102,8 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 12,
+        "h": 10,
+        "w": 24,
         "x": 0,
         "y": 1
       },
@@ -128,7 +128,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "increase(mikrotik_interface_rx_bytes{name=~\"ether1|ether4\"}[5m])",
+          "expr": "increase(mikrotik_interface_rx_bytes{name=~\"${interface:regex}\"}[5m])",
           "legendFormat": "{{name}} rx",
           "range": true,
           "refId": "A"
@@ -139,7 +139,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "increase(mikrotik_interface_tx_bytes{name=~\"ether1|ether4\"}[5m])",
+          "expr": "increase(mikrotik_interface_tx_bytes{name=~\"${interface:regex}\"}[5m])",
           "hide": false,
           "instant": false,
           "legendFormat": "{{name}} tx",
@@ -156,7 +156,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 9
+        "y": 11
       },
       "id": 33,
       "panels": [],
@@ -192,7 +192,7 @@
         "h": 8,
         "w": 6,
         "x": 0,
-        "y": 10
+        "y": 12
       },
       "id": 29,
       "options": {
@@ -263,7 +263,7 @@
         "h": 8,
         "w": 6,
         "x": 6,
-        "y": 10
+        "y": 12
       },
       "id": 31,
       "options": {
@@ -334,7 +334,7 @@
         "h": 8,
         "w": 6,
         "x": 12,
-        "y": 10
+        "y": 12
       },
       "id": 30,
       "options": {
@@ -405,7 +405,7 @@
         "h": 8,
         "w": 6,
         "x": 18,
-        "y": 10
+        "y": 12
       },
       "id": 32,
       "options": {
@@ -497,7 +497,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 18
+        "y": 20
       },
       "id": 35,
       "options": {
@@ -596,7 +596,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 27
+        "y": 29
       },
       "id": 36,
       "options": {
@@ -697,7 +697,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 36
+        "y": 38
       },
       "id": 37,
       "options": {
@@ -790,6 +790,35 @@
         "query": "30s,1m,10m,30m,1h",
         "refresh": 2,
         "type": "interval"
+      },
+      {
+        "current": {
+          "text": [
+            "ether1",
+            "ether4"
+          ],
+          "value": [
+            "ether1",
+            "ether4"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "definition": "label_values(mikrotik_interface_last_update,name)",
+        "includeAll": true,
+        "multi": true,
+        "name": "interface",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(mikrotik_interface_last_update,name)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
       }
     ]
   },
@@ -801,6 +830,6 @@
   "timezone": "",
   "title": "Mikrotik Interfaces",
   "uid": "mikrotikinterfaces",
-  "version": 1,
+  "version": 2,
   "weekStart": ""
 }
