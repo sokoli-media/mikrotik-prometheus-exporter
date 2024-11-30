@@ -43,7 +43,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "ce46ax67be0aod"
+        "uid": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -125,7 +125,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "ce46ax67be0aod"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "expr": "increase(mikrotik_interface_rx_bytes{name=~\"ether1|ether4\"}[5m])",
@@ -136,7 +136,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "ce46ax67be0aod"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "expr": "increase(mikrotik_interface_tx_bytes{name=~\"ether1|ether4\"}[5m])",
@@ -166,7 +166,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "ce46ax67be0aod"
+        "uid": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -217,7 +217,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "ce46ax67be0aod"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "expr": "increase(mikrotik_interface_tx_bytes{name=\"ether1\"}[1h]) + increase(mikrotik_interface_rx_bytes{name=\"ether1\"}[1h])",
@@ -288,7 +288,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e54752cf-c503-488e-ad29-a31795c01552"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "expr": "increase(mikrotik_interface_tx_bytes{name=\"ether1\"}[24h]) + increase(mikrotik_interface_rx_bytes{name=\"ether1\"}[24h])",
@@ -359,7 +359,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e54752cf-c503-488e-ad29-a31795c01552"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "expr": "increase(mikrotik_interface_tx_bytes{name=\"ether1\"}[7d]) + increase(mikrotik_interface_rx_bytes{name=\"ether1\"}[7d])",
@@ -430,7 +430,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e54752cf-c503-488e-ad29-a31795c01552"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "expr": "increase(mikrotik_interface_tx_bytes{name=\"ether1\"}[30d]) + increase(mikrotik_interface_rx_bytes{name=\"ether1\"}[30d])",
@@ -446,7 +446,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "ce46ax67be0aod"
+        "uid": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -526,7 +526,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "ce46ax67be0aod"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -545,7 +545,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "ce46ax67be0aod"
+        "uid": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -627,7 +627,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "ce46ax67be0aod"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -646,7 +646,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "ce46ax67be0aod"
+        "uid": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -728,7 +728,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "ce46ax67be0aod"
+            "uid": "prometheus"
           },
           "editorMode": "code",
           "exemplar": false,
