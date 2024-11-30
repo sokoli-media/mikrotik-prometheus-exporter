@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 10,
+  "id": 11,
   "links": [],
   "panels": [
     {
@@ -97,7 +97,7 @@
               }
             ]
           },
-          "unit": "Bps"
+          "unit": "bps"
         },
         "overrides": []
       },
@@ -128,7 +128,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[5m])",
+          "expr": "rate(mikrotik_interface_rx_bytes{name=\"${interface}\"}[$__rate_interval])*8",
           "legendFormat": "{{name}} rx",
           "range": true,
           "refId": "A"
@@ -139,7 +139,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[5m])",
+          "expr": "rate(mikrotik_interface_tx_bytes{name=\"${interface}\"}[$__rate_interval])*8",
           "hide": false,
           "instant": false,
           "legendFormat": "{{name}} tx",
@@ -793,12 +793,8 @@
       },
       {
         "current": {
-          "text": [
-            "ether1"
-          ],
-          "value": [
-            "ether1"
-          ]
+          "text": "ether1",
+          "value": "ether1"
         },
         "datasource": {
           "type": "prometheus",
@@ -827,6 +823,6 @@
   "timezone": "",
   "title": "Mikrotik Interfaces",
   "uid": "mikrotikinterfaces",
-  "version": 3,
+  "version": 1,
   "weekStart": ""
 }
