@@ -15,8 +15,8 @@ func RunHTTPServer(logger *slog.Logger, config Config) {
 	}
 
 	http.Handle("/metrics", promhttp.Handler())
-	http.HandleFunc("/dashboard.json", func(w http.ResponseWriter, r *http.Request) {
-		http.Error(w, "Resource not found", http.StatusNotFound)
+	http.HandleFunc("/dashboard/interfaces.json", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "/dashboards/interfaces.json")
 	})
 	err := http.ListenAndServe(":9000", nil)
 	if err != nil {
