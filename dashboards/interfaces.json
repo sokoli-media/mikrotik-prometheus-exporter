@@ -97,7 +97,7 @@
               }
             ]
           },
-          "unit": "binBps"
+          "unit": "Bps"
         },
         "overrides": []
       },
@@ -128,7 +128,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "increase(mikrotik_interface_rx_bytes{name=~\"${interface:regex}\"}[5m])",
+          "expr": "increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[5m])",
           "legendFormat": "{{name}} rx",
           "range": true,
           "refId": "A"
@@ -139,7 +139,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "increase(mikrotik_interface_tx_bytes{name=~\"${interface:regex}\"}[5m])",
+          "expr": "increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[5m])",
           "hide": false,
           "instant": false,
           "legendFormat": "{{name}} tx",
@@ -184,7 +184,7 @@
               }
             ]
           },
-          "unit": "bytes"
+          "unit": "decbytes"
         },
         "overrides": []
       },
@@ -220,7 +220,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "increase(mikrotik_interface_tx_bytes{name=\"ether1\"}[1h]) + increase(mikrotik_interface_rx_bytes{name=\"ether1\"}[1h])",
+          "expr": "increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[1h]) + increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[1h])",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -255,7 +255,7 @@
               }
             ]
           },
-          "unit": "bytes"
+          "unit": "decbytes"
         },
         "overrides": []
       },
@@ -291,7 +291,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "increase(mikrotik_interface_tx_bytes{name=\"ether1\"}[24h]) + increase(mikrotik_interface_rx_bytes{name=\"ether1\"}[24h])",
+          "expr": "increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[24h]) + increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[24h])",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -326,7 +326,7 @@
               }
             ]
           },
-          "unit": "bytes"
+          "unit": "decbytes"
         },
         "overrides": []
       },
@@ -362,7 +362,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "increase(mikrotik_interface_tx_bytes{name=\"ether1\"}[7d]) + increase(mikrotik_interface_rx_bytes{name=\"ether1\"}[7d])",
+          "expr": "increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[7d]) + increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[7d])",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -397,7 +397,7 @@
               }
             ]
           },
-          "unit": "bytes"
+          "unit": "decbytes"
         },
         "overrides": []
       },
@@ -433,7 +433,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "increase(mikrotik_interface_tx_bytes{name=\"ether1\"}[30d]) + increase(mikrotik_interface_rx_bytes{name=\"ether1\"}[30d])",
+          "expr": "increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[30d]) + increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[30d])",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -489,7 +489,7 @@
               }
             ]
           },
-          "unit": "bytes"
+          "unit": "decbytes"
         },
         "overrides": []
       },
@@ -530,7 +530,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "increase(mikrotik_interface_tx_bytes{name=\"ether1\"}[1h]) + increase(mikrotik_interface_rx_bytes{name=\"ether1\"}[1h])",
+          "expr": "increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[1h]) + increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[1h])",
           "instant": false,
           "interval": "1h",
           "legendFormat": "hourly usage",
@@ -588,7 +588,7 @@
               }
             ]
           },
-          "unit": "bytes"
+          "unit": "decbytes"
         },
         "overrides": []
       },
@@ -631,7 +631,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "increase(mikrotik_interface_tx_bytes{name=\"ether1\"}[1d]) + increase(mikrotik_interface_rx_bytes{name=\"ether1\"}[1d])",
+          "expr": "increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[1d]) + increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[1d])",
           "instant": false,
           "interval": "1d",
           "legendFormat": "daily usage",
@@ -689,7 +689,7 @@
               }
             ]
           },
-          "unit": "bytes"
+          "unit": "decbytes"
         },
         "overrides": []
       },
@@ -732,7 +732,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "increase(mikrotik_interface_tx_bytes{name=\"ether1\"}[30d]) + increase(mikrotik_interface_rx_bytes{name=\"ether1\"}[30d])",
+          "expr": "increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[30d]) + increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[30d])",
           "instant": false,
           "interval": "30d",
           "legendFormat": "monthly usage (30 days)",
@@ -807,8 +807,7 @@
           "uid": "prometheus"
         },
         "definition": "label_values(mikrotik_interface_last_update,name)",
-        "includeAll": true,
-        "multi": true,
+        "includeAll": false,
         "name": "interface",
         "options": [],
         "query": {
@@ -830,6 +829,6 @@
   "timezone": "",
   "title": "Mikrotik Interfaces",
   "uid": "mikrotikinterfaces",
-  "version": 2,
+  "version": 3,
   "weekStart": ""
 }
