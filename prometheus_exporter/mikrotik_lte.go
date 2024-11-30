@@ -7,6 +7,7 @@ import (
 	"gopkg.in/routeros.v2"
 	"log/slog"
 	"strings"
+	"sync"
 	"time"
 )
 
@@ -81,11 +82,15 @@ func collectLte(logger *slog.Logger, config Config) {
 	lteModemLastUpdate.With(labels).SetToCurrentTime()
 }
 
-func CollectLteMetrics(logger *slog.Logger, config Config) {
+func CollectLteMetrics(logger *slog.Logger, config Config, wg *sync.WaitGroup, quitChannel chan bool) {
+	defer wg.Done()
 	logger = logger.With("exporter", "mikrotik-interface")
 	ticker := time.NewTicker(15 * time.Second)
 	for {
 		select {
+		case <-quitChannel:
+			logger.Info("closing lte metrics gracefully")
+			return
 		case <-ticker.C:
 			collectLte(logger, config)
 		}

@@ -6,6 +6,7 @@ import (
 	"github.com/prometheus/client_golang/prometheus/promauto"
 	"gopkg.in/routeros.v2"
 	"log/slog"
+	"sync"
 	"time"
 )
 
@@ -102,11 +103,16 @@ func collectInterface(logger *slog.Logger, config Config) {
 	}
 }
 
-func CollectInterfaceMetrics(logger *slog.Logger, config Config) {
+func CollectInterfaceMetrics(logger *slog.Logger, config Config, wg *sync.WaitGroup, quitChannel chan bool) {
+	defer wg.Done()
+
 	logger = logger.With("exporter", "mikrotik-interface")
 	ticker := time.NewTicker(15 * time.Second)
 	for {
 		select {
+		case <-quitChannel:
+			logger.Info("closing interface metrics gracefully")
+			return
 		case <-ticker.C:
 			logger.Info("collecting interface metrics")
 			collectInterface(logger, config)
