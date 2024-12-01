@@ -28,6 +28,9 @@ func RunHTTPServer(logger *slog.Logger, config Config) {
 	http.HandleFunc("/dashboard/interfaces.json", func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w, r, "/dashboards/interfaces.json")
 	})
+	http.HandleFunc("/dashboard/lte.json", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "/dashboards/lte.json")
+	})
 
 	sigIntChannel := make(chan os.Signal, 1)
 	signal.Notify(sigIntChannel, os.Interrupt)
