@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 11,
+  "id": 15,
   "links": [],
   "panels": [
     {
@@ -128,7 +128,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "rate(mikrotik_interface_rx_bytes{name=\"${interface}\"}[$__rate_interval])*8",
+          "expr": "sum(rate(mikrotik_interface_rx_bytes{name=\"${interface}\"}[$__rate_interval])*8) by (name)",
           "legendFormat": "{{name}} rx",
           "range": true,
           "refId": "A"
@@ -139,7 +139,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "rate(mikrotik_interface_tx_bytes{name=\"${interface}\"}[$__rate_interval])*8",
+          "expr": "sum(rate(mikrotik_interface_tx_bytes{name=\"${interface}\"}[$__rate_interval])*8) by (name)",
           "hide": false,
           "instant": false,
           "legendFormat": "{{name}} tx",
@@ -220,7 +220,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[1h]) + increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[1h])",
+          "expr": "sum(increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[1h]) + increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[1h])) by (name)",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -291,7 +291,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[24h]) + increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[24h])",
+          "expr": "sum(increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[24h]) + increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[24h])) by (name)",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -362,7 +362,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[7d]) + increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[7d])",
+          "expr": "sum(increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[7d]) + increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[7d])) by (name)",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -433,7 +433,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[30d]) + increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[30d])",
+          "expr": "sum(increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[30d]) + increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[30d])) by (name)",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -530,7 +530,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[1h]) + increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[1h])",
+          "expr": "sum(increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[1h]) + increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[1h])) by (name)",
           "instant": false,
           "interval": "1h",
           "legendFormat": "hourly usage",
@@ -631,7 +631,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[1d]) + increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[1d])",
+          "expr": "sum(increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[1d]) + increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[1d])) by (name)",
           "instant": false,
           "interval": "1d",
           "legendFormat": "daily usage",
@@ -732,7 +732,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[30d]) + increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[30d])",
+          "expr": "sum(increase(mikrotik_interface_tx_bytes{name=\"${interface}\"}[30d]) + increase(mikrotik_interface_rx_bytes{name=\"${interface}\"}[30d])) by (name)",
           "instant": false,
           "interval": "30d",
           "legendFormat": "monthly usage (30 days)",
@@ -783,6 +783,6 @@
   "timezone": "",
   "title": "Mikrotik Interfaces",
   "uid": "mikrotikinterfaces",
-  "version": 2,
+  "version": 3,
   "weekStart": ""
 }
