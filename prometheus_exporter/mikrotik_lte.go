@@ -12,11 +12,11 @@ import (
 )
 
 var lteLabels = []string{"host", "technology", "model"}
-var cqiMetric = promauto.NewGaugeVec(prometheus.GaugeOpts{Name: "lte_modem_cqi"}, lteLabels)
-var sinrMetric = promauto.NewGaugeVec(prometheus.GaugeOpts{Name: "lte_modem_sinr"}, lteLabels)
-var rsrqMetric = promauto.NewGaugeVec(prometheus.GaugeOpts{Name: "lte_modem_rsrq"}, lteLabels)
-var rsrpMetric = promauto.NewGaugeVec(prometheus.GaugeOpts{Name: "lte_modem_rsrp"}, lteLabels)
-var lteModemLastUpdate = promauto.NewGaugeVec(prometheus.GaugeOpts{Name: "lte_modem_last_update"}, lteLabels)
+var cqiMetric = promauto.NewGaugeVec(prometheus.GaugeOpts{Name: "mikrotik_lte_modem_cqi"}, lteLabels)
+var sinrMetric = promauto.NewGaugeVec(prometheus.GaugeOpts{Name: "mikrotik_lte_modem_sinr"}, lteLabels)
+var rsrqMetric = promauto.NewGaugeVec(prometheus.GaugeOpts{Name: "mikrotik_lte_modem_rsrq"}, lteLabels)
+var rsrpMetric = promauto.NewGaugeVec(prometheus.GaugeOpts{Name: "mikrotik_lte_modem_rsrp"}, lteLabels)
+var lteModemLastUpdate = promauto.NewGaugeVec(prometheus.GaugeOpts{Name: "mikrotik_lte_modem_last_update"}, lteLabels)
 
 func collectLte(logger *slog.Logger, config Config) {
 	logger.Info("collecting LTE metrics")
@@ -84,7 +84,7 @@ func collectLte(logger *slog.Logger, config Config) {
 
 func CollectLteMetrics(logger *slog.Logger, config Config, wg *sync.WaitGroup, quitChannel chan bool) {
 	defer wg.Done()
-	logger = logger.With("exporter", "mikrotik-interface")
+	logger = logger.With("exporter", "mikrotik-lte")
 	ticker := time.NewTicker(15 * time.Second)
 	for {
 		select {
