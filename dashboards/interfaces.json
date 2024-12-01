@@ -147,7 +147,7 @@
           "refId": "B"
         }
       ],
-      "title": "Max RX/TX speed [5m]",
+      "title": "RX/TX speed",
       "type": "timeseries"
     },
     {
@@ -752,46 +752,6 @@
   "templating": {
     "list": [
       {
-        "auto": false,
-        "auto_count": 30,
-        "auto_min": "10s",
-        "current": {
-          "text": "10m",
-          "value": "10m"
-        },
-        "name": "interval",
-        "options": [
-          {
-            "selected": false,
-            "text": "30s",
-            "value": "30s"
-          },
-          {
-            "selected": false,
-            "text": "1m",
-            "value": "1m"
-          },
-          {
-            "selected": true,
-            "text": "10m",
-            "value": "10m"
-          },
-          {
-            "selected": false,
-            "text": "30m",
-            "value": "30m"
-          },
-          {
-            "selected": false,
-            "text": "1h",
-            "value": "1h"
-          }
-        ],
-        "query": "30s,1m,10m,30m,1h",
-        "refresh": 2,
-        "type": "interval"
-      },
-      {
         "current": {
           "text": "ether1",
           "value": "ether1"
@@ -823,6 +783,6 @@
   "timezone": "",
   "title": "Mikrotik Interfaces",
   "uid": "mikrotikinterfaces",
-  "version": 1,
+  "version": 2,
   "weekStart": ""
 }
