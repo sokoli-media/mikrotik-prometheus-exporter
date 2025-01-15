@@ -491,7 +491,20 @@
           },
           "unit": "decbytes"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "time:HH:mm"
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 9,
@@ -518,8 +531,8 @@
           "mode": "single",
           "sort": "none"
         },
-        "xTickLabelRotation": 0,
-        "xTickLabelSpacing": 100
+        "xTickLabelRotation": 90,
+        "xTickLabelSpacing": 0
       },
       "pluginVersion": "11.4.0",
       "targets": [
@@ -539,8 +552,8 @@
         }
       ],
       "timeFrom": "24h",
-      "timeShift": "0h/h+h",
-      "title": "Transfer used every hour up to specified (last 24h)",
+      "timeShift": "0h/h+1h",
+      "title": "Transfer used every hour up to specified hour (last 24h)",
       "type": "barchart"
     },
     {
@@ -642,7 +655,7 @@
       ],
       "timeFrom": "31d",
       "timeShift": "0d/d+d",
-      "title": "Transfer used every day (last 31 days)",
+      "title": "Transfer used every day up to specified day (last 31 days)",
       "type": "barchart"
     },
     {
@@ -722,7 +735,7 @@
         },
         "xField": "Time",
         "xTickLabelMaxLength": 3,
-        "xTickLabelRotation": 90,
+        "xTickLabelRotation": 0,
         "xTickLabelSpacing": 0
       },
       "pluginVersion": "11.4.0",
@@ -742,8 +755,9 @@
           "refId": "A"
         }
       ],
-      "timeFrom": "360d",
-      "title": "Transfer used every month (month = 30 days)",
+      "timeFrom": "12M",
+      "timeShift": "0M/M+M",
+      "title": "Transfer used every month up to specified month (month = 30 days)",
       "type": "barchart"
     }
   ],
