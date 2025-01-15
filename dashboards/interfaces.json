@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 15,
+  "id": 74,
   "links": [],
   "panels": [
     {
@@ -120,7 +120,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -212,7 +212,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -283,7 +283,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -354,7 +354,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -425,7 +425,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -491,7 +491,20 @@
           },
           "unit": "decbytes"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "time:HH:mm"
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 9,
@@ -518,10 +531,10 @@
           "mode": "single",
           "sort": "none"
         },
-        "xTickLabelRotation": 0,
+        "xTickLabelRotation": 90,
         "xTickLabelSpacing": 0
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -539,7 +552,8 @@
         }
       ],
       "timeFrom": "24h",
-      "title": "Transfer used every hour (last 24h)",
+      "timeShift": "0h/h+1h",
+      "title": "Transfer used every hour up to specified hour (last 24h)",
       "type": "barchart"
     },
     {
@@ -622,7 +636,7 @@
         "xTickLabelRotation": 90,
         "xTickLabelSpacing": 0
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -640,7 +654,8 @@
         }
       ],
       "timeFrom": "31d",
-      "title": "Transfer used every day (last 31 days)",
+      "timeShift": "0d/d+d",
+      "title": "Transfer used every day up to specified day (last 31 days)",
       "type": "barchart"
     },
     {
@@ -720,10 +735,10 @@
         },
         "xField": "Time",
         "xTickLabelMaxLength": 3,
-        "xTickLabelRotation": 90,
+        "xTickLabelRotation": 0,
         "xTickLabelSpacing": 0
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -740,8 +755,9 @@
           "refId": "A"
         }
       ],
-      "timeFrom": "360d",
-      "title": "Transfer used every month (month = 30 days)",
+      "timeFrom": "12M",
+      "timeShift": "0M/M+M",
+      "title": "Transfer used every month up to specified month (month = 30 days)",
       "type": "barchart"
     }
   ],
@@ -783,6 +799,6 @@
   "timezone": "",
   "title": "Mikrotik Interfaces",
   "uid": "mikrotikinterfaces",
-  "version": 3,
+  "version": 1,
   "weekStart": ""
 }
